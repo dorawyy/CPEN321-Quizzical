@@ -2,7 +2,6 @@ let express = require("express");
 let MongoClient = require("mongodb").MongoClient;
 let fs = require("fs");
 let path = require("path");
-/*eslint new-cap: ["error", { "capIsNew": false }]*/
 let router = express.Router();
 let db;
 
@@ -131,7 +130,6 @@ router.get("/notifications", (req, res, next) => {
 });
 
 /* GET users listing. */
-/*eslint complexity: ["error", 10]*/
 router.get("/profile", (req, res, next) => {
   let url = new URL(req.originalUrl, `http://${req.headers.host}`);
   let uid = url.searchParams.get("userId");
@@ -140,9 +138,7 @@ router.get("/profile", (req, res, next) => {
   if (type === "profileImage") {
     const filepath = "images/"+uid+"/profile_img.jpg";
     let string = "";
-    /* eslint-disable-next-line security/detect-non-literal-fs-filename */
     if (fs.existsSync(filepath)) {
-      /* eslint-disable-next-line security/detect-non-literal-fs-filename */
       let bitmap = fs.readFileSync(filepath);
       string = Buffer(bitmap).toString("base64");
     }

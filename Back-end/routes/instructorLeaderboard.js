@@ -1,6 +1,5 @@
 let express = require("express");
 let MongoClient = require("mongodb").MongoClient;
-/*eslint new-cap: ["error", { "capIsNew": false }]*/
 let router = express.Router();
 let db;
 

@@ -1,5 +1,4 @@
 let express = require("express");
-/*eslint new-cap: ["error", { "capIsNew": false }]*/
 let router = express.Router();
 let fs = require("fs");
 let path = require("path");
@@ -86,14 +85,11 @@ router.post("/profileImg", (req, res, next) => {
   if (req.body.type === "profileImage")
   {
     const folderPath = "images/" + req.body.uid; // needed to pass eslint
-    /* eslint-disable-next-line security/detect-non-literal-fs-filename */
     if (!fs.existsSync(folderPath))
     {
-      /* eslint-disable-next-line security/detect-non-literal-fs-filename */
       fs.mkdirSync(folderPath, {recursive:true});
     }
     const filename = folderPath + "/profile_img.jpg";
-    /* eslint-disable-next-line security/detect-non-literal-fs-filename */
     fs.writeFileSync(filename, req.body.data, {encoding: "base64"});
   }
 
@@ -274,7 +270,6 @@ router.post("/studentStats", (req, res, next) => {
   res.end();
 });
 
-/*eslint complexity: ["error", 10]*/
 router.post("/quiz", (req, res, next) => {
 
   if (req.body.type === "createQuiz") {

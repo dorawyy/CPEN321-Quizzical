@@ -1,4 +1,4 @@
-/*eslint new-cap: ["error", { "capIsNew": false }]*/
+
 let firebaseAdmin = require("firebase-admin");
 let scheduler = require("node-schedule");
 let MongoClient = require("mongodb").MongoClient;

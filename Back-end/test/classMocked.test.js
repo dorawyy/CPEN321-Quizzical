@@ -7,7 +7,6 @@ server.use("/classes", app);
 const supertest = require("supertest");
 const request = supertest(server);
 /*global jest*/
-/*eslint no-undef: "error"*/
 jest.mock("../routes/firebasePush.js");
 
 describe("class test", () => {
